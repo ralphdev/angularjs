@@ -1,0 +1,26 @@
+<h1>Alumnos</h1>
+<h4>Listado de alumnos en el sistema</h4>
+<hr>
+<div class="row" align="right">
+	<a href="#!/alumno/nuevo" class="btn btn-info">Crear Alumno</a>
+	<br><br>
+</div>
+<div class="row">
+	<table class="table table-striped">
+		<tr>
+			<th>Código</th>
+			<th>Nombre</th>
+			<th>Teléfono</th>
+			<th>Ver</th>
+		</tr>
+		<tr ng-repeat="alumno in alumnos | limitTo:posicion | limitTo:-5">
+			<td>{{ alumno.codigo }}</td>
+			<td>{{ alumno.nombre }}</td>
+			<td>{{ alumno.telefono | telefono }}</td>
+			<td><a href="#!/alumno/{{ alumno.codigo }}">Ver registro</a></td>
+		</tr>
+	</table>
+	<br>
+	<a ng-click="anteriores()" class="btn btn-primary">Anteriores</a>
+	<a ng-click="siguientes()" class="btn btn-primary">Siguientes</a>
+</div>
